@@ -1,0 +1,628 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="Ferreteria.bacpacModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="CLIENTE">
+          <Key>
+            <PropertyRef Name="NumDoc" />
+          </Key>
+          <Property Name="NumDoc" Type="int" Nullable="false" />
+          <Property Name="TipoDoc" Type="varchar" MaxLength="3" />
+          <Property Name="NomCliente" Type="varchar" MaxLength="20" />
+          <Property Name="ApeCliente" Type="varchar" MaxLength="30" />
+        </EntityType>
+        <EntityType Name="COMPROBANTE">
+          <Key>
+            <PropertyRef Name="NumComprobante" />
+          </Key>
+          <Property Name="NumComprobante" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IdCliente" Type="int" />
+          <Property Name="IdUsuario" Type="int" />
+          <Property Name="NomUsuario" Type="varchar" MaxLength="50" />
+          <Property Name="NomCliente" Type="varchar" MaxLength="50" />
+          <Property Name="Total" Type="decimal" Precision="10" Scale="2" />
+          <Property Name="TipoComprobante" Type="varchar" MaxLength="50" />
+          <Property Name="IGVComprobante" Type="decimal" Precision="10" Scale="2" />
+          <Property Name="FechaComprobante" Type="date" />
+          <Property Name="ApeCliente" Type="varchar" MaxLength="30" />
+          <Property Name="IdPago" Type="int" />
+        </EntityType>
+        <EntityType Name="DETALLE_COMPROBANTE">
+          <Key>
+            <PropertyRef Name="IdDetalle" />
+          </Key>
+          <Property Name="IdDetalle" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IdComprobante" Type="int" />
+          <Property Name="CodProd" Type="int" />
+          <Property Name="CantProd" Type="int" />
+          <Property Name="PrecioVenta" Type="decimal" Precision="10" Scale="2" />
+          <Property Name="ImporteProd" Type="decimal" Precision="10" Scale="2" />
+        </EntityType>
+        <EntityType Name="PAGO">
+          <Key>
+            <PropertyRef Name="IdPago" />
+          </Key>
+          <Property Name="IdPago" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NomTipoPago" Type="varchar" MaxLength="20" />
+        </EntityType>
+        <EntityType Name="PRODUCTO">
+          <Key>
+            <PropertyRef Name="CodProd" />
+          </Key>
+          <Property Name="CodProd" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NomProd" Type="varchar" MaxLength="30" />
+          <Property Name="StockProd" Type="int" />
+          <Property Name="PrecioVenta" Type="decimal" Precision="10" Scale="2" />
+          <Property Name="Estado" Type="varchar" MaxLength="10" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
+        <EntityType Name="USUARIO">
+          <Key>
+            <PropertyRef Name="IdUsuario" />
+          </Key>
+          <Property Name="IdUsuario" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NombreEmpleado" Type="varchar" MaxLength="50" />
+          <Property Name="NomUsuario" Type="varchar" MaxLength="50" />
+          <Property Name="ContraUsuario" Type="varchar" MaxLength="50" />
+          <Property Name="Pregunta" Type="varchar" MaxLength="50" />
+          <Property Name="Respuesta" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <Association Name="FK__COMPROBAN__IdCli__2C3393D0">
+          <End Role="CLIENTE" Type="Self.CLIENTE" Multiplicity="0..1" />
+          <End Role="COMPROBANTE" Type="Self.COMPROBANTE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CLIENTE">
+              <PropertyRef Name="NumDoc" />
+            </Principal>
+            <Dependent Role="COMPROBANTE">
+              <PropertyRef Name="IdCliente" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__COMPROBAN__IdUsu__2D27B809">
+          <End Role="USUARIO" Type="Self.USUARIO" Multiplicity="0..1" />
+          <End Role="COMPROBANTE" Type="Self.COMPROBANTE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="USUARIO">
+              <PropertyRef Name="IdUsuario" />
+            </Principal>
+            <Dependent Role="COMPROBANTE">
+              <PropertyRef Name="IdUsuario" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__DETALLE_C__CodPr__30F848ED">
+          <End Role="PRODUCTO" Type="Self.PRODUCTO" Multiplicity="0..1" />
+          <End Role="DETALLE_COMPROBANTE" Type="Self.DETALLE_COMPROBANTE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PRODUCTO">
+              <PropertyRef Name="CodProd" />
+            </Principal>
+            <Dependent Role="DETALLE_COMPROBANTE">
+              <PropertyRef Name="CodProd" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__DETALLE_C__IdCom__300424B4">
+          <End Role="COMPROBANTE" Type="Self.COMPROBANTE" Multiplicity="0..1" />
+          <End Role="DETALLE_COMPROBANTE" Type="Self.DETALLE_COMPROBANTE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="COMPROBANTE">
+              <PropertyRef Name="NumComprobante" />
+            </Principal>
+            <Dependent Role="DETALLE_COMPROBANTE">
+              <PropertyRef Name="IdComprobante" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_COMPROBANTE_PAGO">
+          <End Role="PAGO" Type="Self.PAGO" Multiplicity="0..1" />
+          <End Role="COMPROBANTE" Type="Self.COMPROBANTE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PAGO">
+              <PropertyRef Name="IdPago" />
+            </Principal>
+            <Dependent Role="COMPROBANTE">
+              <PropertyRef Name="IdPago" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Function Name="fn_diagramobjects" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="int" />
+        <Function Name="rango_fecha" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="fecha1" Type="date" Mode="In" />
+          <Parameter Name="fecha2" Type="date" Mode="In" />
+        </Function>
+        <Function Name="RANGOFECHAS" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="fecha1" Type="date" Mode="In" />
+          <Parameter Name="fecha2" Type="date" Mode="In" />
+        </Function>
+        <Function Name="sp_alterdiagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+          <Parameter Name="version" Type="int" Mode="In" />
+          <Parameter Name="definition" Type="varbinary(max)" Mode="In" />
+        </Function>
+        <Function Name="sp_creatediagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+          <Parameter Name="version" Type="int" Mode="In" />
+          <Parameter Name="definition" Type="varbinary(max)" Mode="In" />
+        </Function>
+        <Function Name="sp_dropdiagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="sp_helpdiagramdefinition" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="sp_helpdiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="sp_renamediagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+          <Parameter Name="new_diagramname" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="sp_upgraddiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <EntityContainer Name="FerreteriabacpacModelStoreContainer">
+          <EntitySet Name="CLIENTE" EntityType="Self.CLIENTE" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="COMPROBANTE" EntityType="Self.COMPROBANTE" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DETALLE_COMPROBANTE" EntityType="Self.DETALLE_COMPROBANTE" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PAGO" EntityType="Self.PAGO" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PRODUCTO" EntityType="Self.PRODUCTO" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="USUARIO" EntityType="Self.USUARIO" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK__COMPROBAN__IdCli__2C3393D0" Association="Self.FK__COMPROBAN__IdCli__2C3393D0">
+            <End Role="CLIENTE" EntitySet="CLIENTE" />
+            <End Role="COMPROBANTE" EntitySet="COMPROBANTE" />
+          </AssociationSet>
+          <AssociationSet Name="FK__COMPROBAN__IdUsu__2D27B809" Association="Self.FK__COMPROBAN__IdUsu__2D27B809">
+            <End Role="USUARIO" EntitySet="USUARIO" />
+            <End Role="COMPROBANTE" EntitySet="COMPROBANTE" />
+          </AssociationSet>
+          <AssociationSet Name="FK__DETALLE_C__CodPr__30F848ED" Association="Self.FK__DETALLE_C__CodPr__30F848ED">
+            <End Role="PRODUCTO" EntitySet="PRODUCTO" />
+            <End Role="DETALLE_COMPROBANTE" EntitySet="DETALLE_COMPROBANTE" />
+          </AssociationSet>
+          <AssociationSet Name="FK__DETALLE_C__IdCom__300424B4" Association="Self.FK__DETALLE_C__IdCom__300424B4">
+            <End Role="COMPROBANTE" EntitySet="COMPROBANTE" />
+            <End Role="DETALLE_COMPROBANTE" EntitySet="DETALLE_COMPROBANTE" />
+          </AssociationSet>
+          <AssociationSet Name="FK_COMPROBANTE_PAGO" Association="Self.FK_COMPROBANTE_PAGO">
+            <End Role="PAGO" EntitySet="PAGO" />
+            <End Role="COMPROBANTE" EntitySet="COMPROBANTE" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="Ferreteria.bacpacModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="CLIENTE">
+          <Key>
+            <PropertyRef Name="NumDoc" />
+          </Key>
+          <Property Name="NumDoc" Type="Int32" Nullable="false" />
+          <Property Name="TipoDoc" Type="String" MaxLength="3" FixedLength="false" Unicode="false" />
+          <Property Name="NomCliente" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="ApeCliente" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="COMPROBANTE" Relationship="Self.FK__COMPROBAN__IdCli__2F10007B" FromRole="CLIENTE" ToRole="COMPROBANTE" />
+        </EntityType>
+        <EntityType Name="COMPROBANTE">
+          <Key>
+            <PropertyRef Name="NumComprobante" />
+          </Key>
+          <Property Name="NumComprobante" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IdCliente" Type="Int32" />
+          <Property Name="IdUsuario" Type="Int32" />
+          <Property Name="NomUsuario" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="NomCliente" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Total" Type="Decimal" Precision="10" Scale="2" />
+          <Property Name="TipoComprobante" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="IGVComprobante" Type="Decimal" Precision="10" Scale="2" />
+          <Property Name="FechaComprobante" Type="DateTime" Precision="0" />
+          <Property Name="ApeCliente" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="CLIENTE" Relationship="Self.FK__COMPROBAN__IdCli__2F10007B" FromRole="COMPROBANTE" ToRole="CLIENTE" />
+          <NavigationProperty Name="USUARIO" Relationship="Self.FK__COMPROBAN__IdUsu__300424B4" FromRole="COMPROBANTE" ToRole="USUARIO" />
+          <NavigationProperty Name="DETALLE_COMPROBANTE" Relationship="Self.FK__DETALLE_C__IdCom__30F848ED" FromRole="COMPROBANTE" ToRole="DETALLE_COMPROBANTE" />
+          <Property Name="IdPago" Type="Int32" />
+          <NavigationProperty Name="PAGO" Relationship="Ferreteria.bacpacModel.FK_COMPROBANTE_PAGO" FromRole="COMPROBANTE" ToRole="PAGO" />
+        </EntityType>
+        <EntityType Name="DETALLE_COMPROBANTE">
+          <Key>
+            <PropertyRef Name="IdDetalle" />
+          </Key>
+          <Property Name="IdDetalle" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IdComprobante" Type="Int32" />
+          <Property Name="CodProd" Type="Int32" />
+          <Property Name="CantProd" Type="Int32" />
+          <Property Name="PrecioVenta" Type="Decimal" Precision="10" Scale="2" />
+          <Property Name="ImporteProd" Type="Decimal" Precision="10" Scale="2" />
+          <NavigationProperty Name="COMPROBANTE" Relationship="Self.FK__DETALLE_C__IdCom__30F848ED" FromRole="DETALLE_COMPROBANTE" ToRole="COMPROBANTE" />
+          <NavigationProperty Name="PRODUCTO" Relationship="Self.FK__DETALLE_C__CodPr__31EC6D26" FromRole="DETALLE_COMPROBANTE" ToRole="PRODUCTO" />
+        </EntityType>
+        <EntityType Name="PRODUCTO">
+          <Key>
+            <PropertyRef Name="CodProd" />
+          </Key>
+          <Property Name="CodProd" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NomProd" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="StockProd" Type="Int32" />
+          <Property Name="PrecioVenta" Type="Decimal" Precision="10" Scale="2" />
+          <Property Name="Estado" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="DETALLE_COMPROBANTE" Relationship="Self.FK__DETALLE_C__CodPr__31EC6D26" FromRole="PRODUCTO" ToRole="DETALLE_COMPROBANTE" />
+        </EntityType>
+        <EntityType Name="USUARIO">
+          <Key>
+            <PropertyRef Name="IdUsuario" />
+          </Key>
+          <Property Name="IdUsuario" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NombreEmpleado" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="NomUsuario" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ContraUsuario" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Pregunta" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Respuesta" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="COMPROBANTE" Relationship="Self.FK__COMPROBAN__IdUsu__300424B4" FromRole="USUARIO" ToRole="COMPROBANTE" />
+        </EntityType>
+        <Association Name="FK__COMPROBAN__IdCli__2F10007B">
+          <End Role="CLIENTE" Type="Self.CLIENTE" Multiplicity="0..1" />
+          <End Role="COMPROBANTE" Type="Self.COMPROBANTE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CLIENTE">
+              <PropertyRef Name="NumDoc" />
+            </Principal>
+            <Dependent Role="COMPROBANTE">
+              <PropertyRef Name="IdCliente" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__COMPROBAN__IdUsu__300424B4">
+          <End Role="USUARIO" Type="Self.USUARIO" Multiplicity="0..1" />
+          <End Role="COMPROBANTE" Type="Self.COMPROBANTE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="USUARIO">
+              <PropertyRef Name="IdUsuario" />
+            </Principal>
+            <Dependent Role="COMPROBANTE">
+              <PropertyRef Name="IdUsuario" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__DETALLE_C__IdCom__30F848ED">
+          <End Role="COMPROBANTE" Type="Self.COMPROBANTE" Multiplicity="0..1" />
+          <End Role="DETALLE_COMPROBANTE" Type="Self.DETALLE_COMPROBANTE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="COMPROBANTE">
+              <PropertyRef Name="NumComprobante" />
+            </Principal>
+            <Dependent Role="DETALLE_COMPROBANTE">
+              <PropertyRef Name="IdComprobante" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__DETALLE_C__CodPr__31EC6D26">
+          <End Role="PRODUCTO" Type="Self.PRODUCTO" Multiplicity="0..1" />
+          <End Role="DETALLE_COMPROBANTE" Type="Self.DETALLE_COMPROBANTE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PRODUCTO">
+              <PropertyRef Name="CodProd" />
+            </Principal>
+            <Dependent Role="DETALLE_COMPROBANTE">
+              <PropertyRef Name="CodProd" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="FerreteriaEntities1" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="CLIENTE" EntityType="Self.CLIENTE" />
+          <EntitySet Name="COMPROBANTE" EntityType="Self.COMPROBANTE" />
+          <EntitySet Name="DETALLE_COMPROBANTE" EntityType="Self.DETALLE_COMPROBANTE" />
+          <EntitySet Name="PRODUCTO" EntityType="Self.PRODUCTO" />
+          <EntitySet Name="USUARIO" EntityType="Self.USUARIO" />
+          <AssociationSet Name="FK__COMPROBAN__IdCli__2F10007B" Association="Self.FK__COMPROBAN__IdCli__2F10007B">
+            <End Role="CLIENTE" EntitySet="CLIENTE" />
+            <End Role="COMPROBANTE" EntitySet="COMPROBANTE" />
+          </AssociationSet>
+          <AssociationSet Name="FK__COMPROBAN__IdUsu__300424B4" Association="Self.FK__COMPROBAN__IdUsu__300424B4">
+            <End Role="USUARIO" EntitySet="USUARIO" />
+            <End Role="COMPROBANTE" EntitySet="COMPROBANTE" />
+          </AssociationSet>
+          <AssociationSet Name="FK__DETALLE_C__IdCom__30F848ED" Association="Self.FK__DETALLE_C__IdCom__30F848ED">
+            <End Role="COMPROBANTE" EntitySet="COMPROBANTE" />
+            <End Role="DETALLE_COMPROBANTE" EntitySet="DETALLE_COMPROBANTE" />
+          </AssociationSet>
+          <AssociationSet Name="FK__DETALLE_C__CodPr__31EC6D26" Association="Self.FK__DETALLE_C__CodPr__31EC6D26">
+            <End Role="PRODUCTO" EntitySet="PRODUCTO" />
+            <End Role="DETALLE_COMPROBANTE" EntitySet="DETALLE_COMPROBANTE" />
+          </AssociationSet>
+          <FunctionImport Name="RANGOFECHAS" ReturnType="Collection(Ferreteria.bacpacModel.RANGOFECHAS_Result)">
+            <Parameter Name="fecha1" Mode="In" Type="DateTime" />
+            <Parameter Name="fecha2" Mode="In" Type="DateTime" />
+          </FunctionImport>
+          <EntitySet Name="PAGO" EntityType="Ferreteria.bacpacModel.PAGO" />
+          <AssociationSet Name="FK_COMPROBANTE_PAGO" Association="Ferreteria.bacpacModel.FK_COMPROBANTE_PAGO">
+            <End Role="PAGO" EntitySet="PAGO" />
+            <End Role="COMPROBANTE" EntitySet="COMPROBANTE" />
+          </AssociationSet>
+          <EntitySet Name="sysdiagrams" EntityType="Ferreteria.bacpacModel.sysdiagrams" />
+          <FunctionImport Name="sp_alterdiagram">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+            <Parameter Name="version" Mode="In" Type="Int32" />
+            <Parameter Name="definition" Mode="In" Type="Binary" />
+          </FunctionImport>
+          <FunctionImport Name="sp_creatediagram">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+            <Parameter Name="version" Mode="In" Type="Int32" />
+            <Parameter Name="definition" Mode="In" Type="Binary" />
+          </FunctionImport>
+          <FunctionImport Name="sp_dropdiagram">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="sp_helpdiagramdefinition" ReturnType="Collection(Ferreteria.bacpacModel.sp_helpdiagramdefinition_Result)">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="sp_helpdiagrams" ReturnType="Collection(Ferreteria.bacpacModel.sp_helpdiagrams_Result)">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="sp_renamediagram">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+            <Parameter Name="new_diagramname" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="sp_upgraddiagrams" />
+          <FunctionImport Name="rango_fecha" ReturnType="Collection(Ferreteria.bacpacModel.rango_fecha_Result)">
+            <Parameter Name="fecha1" Mode="In" Type="DateTime" />
+            <Parameter Name="fecha2" Mode="In" Type="DateTime" />
+          </FunctionImport>
+        </EntityContainer>
+        <ComplexType Name="RANGOFECHAS_Result">
+          <Property Type="Int32" Name="NumComprobante" Nullable="false" />
+          <Property Type="Int32" Name="IdCliente" Nullable="true" />
+          <Property Type="Int32" Name="IdUsuario" Nullable="true" />
+          <Property Type="String" Name="NomUsuario" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="NomCliente" Nullable="true" MaxLength="50" />
+          <Property Type="Decimal" Name="Total" Nullable="true" Precision="10" Scale="2" />
+          <Property Type="String" Name="TipoComprobante" Nullable="true" MaxLength="50" />
+          <Property Type="Decimal" Name="IGVComprobante" Nullable="true" Precision="10" Scale="2" />
+          <Property Type="DateTime" Name="FechaComprobante" Nullable="true" />
+          <Property Type="String" Name="ApeCliente" Nullable="true" MaxLength="30" />
+        </ComplexType>
+        <EntityType Name="PAGO">
+          <Key>
+            <PropertyRef Name="IdPago" />
+          </Key>
+          <Property Name="IdPago" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NomTipoPago" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="COMPROBANTE" Relationship="Ferreteria.bacpacModel.FK_COMPROBANTE_PAGO" FromRole="PAGO" ToRole="COMPROBANTE" />
+        </EntityType>
+        <Association Name="FK_COMPROBANTE_PAGO">
+          <End Type="Ferreteria.bacpacModel.PAGO" Role="PAGO" Multiplicity="0..1" />
+          <End Type="Ferreteria.bacpacModel.COMPROBANTE" Role="COMPROBANTE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PAGO">
+              <PropertyRef Name="IdPago" />
+            </Principal>
+            <Dependent Role="COMPROBANTE">
+              <PropertyRef Name="IdPago" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <ComplexType Name="sp_helpdiagramdefinition_Result">
+          <Property Type="Int32" Name="version" Nullable="true" />
+          <Property Type="Binary" Name="definition" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="sp_helpdiagrams_Result">
+          <Property Type="String" Name="Database" Nullable="true" MaxLength="128" />
+          <Property Type="String" Name="Name" Nullable="false" MaxLength="128" />
+          <Property Type="Int32" Name="ID" Nullable="false" />
+          <Property Type="String" Name="Owner" Nullable="true" MaxLength="128" />
+          <Property Type="Int32" Name="OwnerID" Nullable="false" />
+        </ComplexType>
+        <ComplexType Name="rango_fecha_Result">
+          <Property Type="Int32" Name="NumComprobante" Nullable="false" />
+          <Property Type="Int32" Name="IdCliente" Nullable="true" />
+          <Property Type="Int32" Name="IdUsuario" Nullable="true" />
+          <Property Type="String" Name="NomUsuario" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="NomCliente" Nullable="true" MaxLength="50" />
+          <Property Type="Decimal" Name="Total" Nullable="true" Precision="10" Scale="2" />
+          <Property Type="String" Name="TipoComprobante" Nullable="true" MaxLength="50" />
+          <Property Type="Decimal" Name="IGVComprobante" Nullable="true" Precision="10" Scale="2" />
+          <Property Type="DateTime" Name="FechaComprobante" Nullable="true" />
+          <Property Type="String" Name="ApeCliente" Nullable="true" MaxLength="30" />
+          <Property Type="Int32" Name="IdPago" Nullable="true" />
+        </ComplexType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="FerreteriabacpacModelStoreContainer" CdmEntityContainer="FerreteriaEntities1">
+          <EntitySetMapping Name="CLIENTE">
+            <EntityTypeMapping TypeName="Ferreteria.bacpacModel.CLIENTE">
+              <MappingFragment StoreEntitySet="CLIENTE">
+                <ScalarProperty Name="NumDoc" ColumnName="NumDoc" />
+                <ScalarProperty Name="TipoDoc" ColumnName="TipoDoc" />
+                <ScalarProperty Name="NomCliente" ColumnName="NomCliente" />
+                <ScalarProperty Name="ApeCliente" ColumnName="ApeCliente" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="COMPROBANTE">
+            <EntityTypeMapping TypeName="Ferreteria.bacpacModel.COMPROBANTE">
+              <MappingFragment StoreEntitySet="COMPROBANTE">
+                <ScalarProperty Name="IdPago" ColumnName="IdPago" />
+                <ScalarProperty Name="NumComprobante" ColumnName="NumComprobante" />
+                <ScalarProperty Name="IdCliente" ColumnName="IdCliente" />
+                <ScalarProperty Name="IdUsuario" ColumnName="IdUsuario" />
+                <ScalarProperty Name="NomUsuario" ColumnName="NomUsuario" />
+                <ScalarProperty Name="NomCliente" ColumnName="NomCliente" />
+                <ScalarProperty Name="Total" ColumnName="Total" />
+                <ScalarProperty Name="TipoComprobante" ColumnName="TipoComprobante" />
+                <ScalarProperty Name="IGVComprobante" ColumnName="IGVComprobante" />
+                <ScalarProperty Name="FechaComprobante" ColumnName="FechaComprobante" />
+                <ScalarProperty Name="ApeCliente" ColumnName="ApeCliente" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DETALLE_COMPROBANTE">
+            <EntityTypeMapping TypeName="Ferreteria.bacpacModel.DETALLE_COMPROBANTE">
+              <MappingFragment StoreEntitySet="DETALLE_COMPROBANTE">
+                <ScalarProperty Name="IdDetalle" ColumnName="IdDetalle" />
+                <ScalarProperty Name="IdComprobante" ColumnName="IdComprobante" />
+                <ScalarProperty Name="CodProd" ColumnName="CodProd" />
+                <ScalarProperty Name="CantProd" ColumnName="CantProd" />
+                <ScalarProperty Name="PrecioVenta" ColumnName="PrecioVenta" />
+                <ScalarProperty Name="ImporteProd" ColumnName="ImporteProd" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PRODUCTO">
+            <EntityTypeMapping TypeName="Ferreteria.bacpacModel.PRODUCTO">
+              <MappingFragment StoreEntitySet="PRODUCTO">
+                <ScalarProperty Name="CodProd" ColumnName="CodProd" />
+                <ScalarProperty Name="NomProd" ColumnName="NomProd" />
+                <ScalarProperty Name="StockProd" ColumnName="StockProd" />
+                <ScalarProperty Name="PrecioVenta" ColumnName="PrecioVenta" />
+                <ScalarProperty Name="Estado" ColumnName="Estado" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="USUARIO">
+            <EntityTypeMapping TypeName="Ferreteria.bacpacModel.USUARIO">
+              <MappingFragment StoreEntitySet="USUARIO">
+                <ScalarProperty Name="IdUsuario" ColumnName="IdUsuario" />
+                <ScalarProperty Name="NombreEmpleado" ColumnName="NombreEmpleado" />
+                <ScalarProperty Name="NomUsuario" ColumnName="NomUsuario" />
+                <ScalarProperty Name="ContraUsuario" ColumnName="ContraUsuario" />
+                <ScalarProperty Name="Pregunta" ColumnName="Pregunta" />
+                <ScalarProperty Name="Respuesta" ColumnName="Respuesta" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="RANGOFECHAS" FunctionName="Ferreteria.bacpacModel.Store.RANGOFECHAS">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="Ferreteria.bacpacModel.RANGOFECHAS_Result">
+                <ScalarProperty Name="NumComprobante" ColumnName="NumComprobante" />
+                <ScalarProperty Name="IdCliente" ColumnName="IdCliente" />
+                <ScalarProperty Name="IdUsuario" ColumnName="IdUsuario" />
+                <ScalarProperty Name="NomUsuario" ColumnName="NomUsuario" />
+                <ScalarProperty Name="NomCliente" ColumnName="NomCliente" />
+                <ScalarProperty Name="Total" ColumnName="Total" />
+                <ScalarProperty Name="TipoComprobante" ColumnName="TipoComprobante" />
+                <ScalarProperty Name="IGVComprobante" ColumnName="IGVComprobante" />
+                <ScalarProperty Name="FechaComprobante" ColumnName="FechaComprobante" />
+                <ScalarProperty Name="ApeCliente" ColumnName="ApeCliente" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <EntitySetMapping Name="PAGO">
+            <EntityTypeMapping TypeName="Ferreteria.bacpacModel.PAGO">
+              <MappingFragment StoreEntitySet="PAGO">
+                <ScalarProperty Name="NomTipoPago" ColumnName="NomTipoPago" />
+                <ScalarProperty Name="IdPago" ColumnName="IdPago" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="Ferreteria.bacpacModel.sysdiagrams">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="definition" ColumnName="definition" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="name" ColumnName="name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="sp_alterdiagram" FunctionName="Ferreteria.bacpacModel.Store.sp_alterdiagram" />
+          <FunctionImportMapping FunctionImportName="sp_creatediagram" FunctionName="Ferreteria.bacpacModel.Store.sp_creatediagram" />
+          <FunctionImportMapping FunctionImportName="sp_dropdiagram" FunctionName="Ferreteria.bacpacModel.Store.sp_dropdiagram" />
+          <FunctionImportMapping FunctionImportName="sp_helpdiagramdefinition" FunctionName="Ferreteria.bacpacModel.Store.sp_helpdiagramdefinition">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="Ferreteria.bacpacModel.sp_helpdiagramdefinition_Result">
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="definition" ColumnName="definition" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="sp_helpdiagrams" FunctionName="Ferreteria.bacpacModel.Store.sp_helpdiagrams">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="Ferreteria.bacpacModel.sp_helpdiagrams_Result">
+                <ScalarProperty Name="Database" ColumnName="Database" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Owner" ColumnName="Owner" />
+                <ScalarProperty Name="OwnerID" ColumnName="OwnerID" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="sp_renamediagram" FunctionName="Ferreteria.bacpacModel.Store.sp_renamediagram" />
+          <FunctionImportMapping FunctionImportName="sp_upgraddiagrams" FunctionName="Ferreteria.bacpacModel.Store.sp_upgraddiagrams" />
+          <FunctionImportMapping FunctionImportName="rango_fecha" FunctionName="Ferreteria.bacpacModel.Store.rango_fecha">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="Ferreteria.bacpacModel.rango_fecha_Result">
+                <ScalarProperty Name="NumComprobante" ColumnName="NumComprobante" />
+                <ScalarProperty Name="IdCliente" ColumnName="IdCliente" />
+                <ScalarProperty Name="IdUsuario" ColumnName="IdUsuario" />
+                <ScalarProperty Name="NomUsuario" ColumnName="NomUsuario" />
+                <ScalarProperty Name="NomCliente" ColumnName="NomCliente" />
+                <ScalarProperty Name="Total" ColumnName="Total" />
+                <ScalarProperty Name="TipoComprobante" ColumnName="TipoComprobante" />
+                <ScalarProperty Name="IGVComprobante" ColumnName="IGVComprobante" />
+                <ScalarProperty Name="FechaComprobante" ColumnName="FechaComprobante" />
+                <ScalarProperty Name="ApeCliente" ColumnName="ApeCliente" />
+                <ScalarProperty Name="IdPago" ColumnName="IdPago" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Ninguno" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

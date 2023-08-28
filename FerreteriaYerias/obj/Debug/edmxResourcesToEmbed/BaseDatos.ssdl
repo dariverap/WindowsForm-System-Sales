@@ -1,0 +1,134 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="FerreteriaModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="CLIENTE">
+    <Key>
+      <PropertyRef Name="NumDoc" />
+    </Key>
+    <Property Name="NumDoc" Type="int" Nullable="false" />
+    <Property Name="TipoDoc" Type="varchar" MaxLength="3" />
+    <Property Name="NomCliente" Type="varchar" MaxLength="20" />
+    <Property Name="ApeCliente" Type="varchar" MaxLength="30" />
+  </EntityType>
+  <EntityType Name="COMPROBANTE">
+    <Key>
+      <PropertyRef Name="NumComprobante" />
+    </Key>
+    <Property Name="NumComprobante" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="IdCliente" Type="int" />
+    <Property Name="IdUsuario" Type="int" />
+    <Property Name="NomUsuario" Type="varchar" MaxLength="50" />
+    <Property Name="NomCliente" Type="varchar" MaxLength="50" />
+    <Property Name="Total" Type="decimal" Precision="10" Scale="2" />
+    <Property Name="TipoComprobante" Type="varchar" MaxLength="50" />
+    <Property Name="IGVComprobante" Type="decimal" Precision="10" Scale="2" />
+    <Property Name="FechaComprobante" Type="date" />
+    <Property Name="ApeCliente" Type="varchar" MaxLength="30" />
+  </EntityType>
+  <EntityType Name="DETALLE_COMPROBANTE">
+    <Key>
+      <PropertyRef Name="IdDetalle" />
+    </Key>
+    <Property Name="IdDetalle" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="IdComprobante" Type="int" />
+    <Property Name="CodProd" Type="int" />
+    <Property Name="CantProd" Type="int" />
+    <Property Name="PrecioVenta" Type="decimal" Precision="10" Scale="2" />
+    <Property Name="ImporteProd" Type="decimal" Precision="10" Scale="2" />
+  </EntityType>
+  <EntityType Name="PRODUCTO">
+    <Key>
+      <PropertyRef Name="CodProd" />
+    </Key>
+    <Property Name="CodProd" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="NomProd" Type="varchar" MaxLength="30" />
+    <Property Name="StockProd" Type="int" />
+    <Property Name="PrecioVenta" Type="decimal" Precision="10" Scale="2" />
+    <Property Name="Estado" Type="varchar" MaxLength="10" />
+  </EntityType>
+  <EntityType Name="USUARIO">
+    <Key>
+      <PropertyRef Name="IdUsuario" />
+    </Key>
+    <Property Name="IdUsuario" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="NombreEmpleado" Type="varchar" MaxLength="50" />
+    <Property Name="NomUsuario" Type="varchar" MaxLength="50" />
+    <Property Name="ContraUsuario" Type="varchar" MaxLength="50" />
+    <Property Name="Pregunta" Type="varchar" MaxLength="50" />
+    <Property Name="Respuesta" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <Association Name="FK__COMPROBAN__IdCli__2C3393D0">
+    <End Role="CLIENTE" Type="Self.CLIENTE" Multiplicity="0..1" />
+    <End Role="COMPROBANTE" Type="Self.COMPROBANTE" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CLIENTE">
+        <PropertyRef Name="NumDoc" />
+      </Principal>
+      <Dependent Role="COMPROBANTE">
+        <PropertyRef Name="IdCliente" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__COMPROBAN__IdUsu__2D27B809">
+    <End Role="USUARIO" Type="Self.USUARIO" Multiplicity="0..1" />
+    <End Role="COMPROBANTE" Type="Self.COMPROBANTE" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="USUARIO">
+        <PropertyRef Name="IdUsuario" />
+      </Principal>
+      <Dependent Role="COMPROBANTE">
+        <PropertyRef Name="IdUsuario" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__DETALLE_C__CodPr__30F848ED">
+    <End Role="PRODUCTO" Type="Self.PRODUCTO" Multiplicity="0..1" />
+    <End Role="DETALLE_COMPROBANTE" Type="Self.DETALLE_COMPROBANTE" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PRODUCTO">
+        <PropertyRef Name="CodProd" />
+      </Principal>
+      <Dependent Role="DETALLE_COMPROBANTE">
+        <PropertyRef Name="CodProd" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__DETALLE_C__IdCom__300424B4">
+    <End Role="COMPROBANTE" Type="Self.COMPROBANTE" Multiplicity="0..1" />
+    <End Role="DETALLE_COMPROBANTE" Type="Self.DETALLE_COMPROBANTE" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="COMPROBANTE">
+        <PropertyRef Name="NumComprobante" />
+      </Principal>
+      <Dependent Role="DETALLE_COMPROBANTE">
+        <PropertyRef Name="IdComprobante" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Function Name="RANGOFECHAS" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="fecha1" Type="date" Mode="In" />
+    <Parameter Name="fecha2" Type="date" Mode="In" />
+  </Function>
+  <EntityContainer Name="FerreteriaModelStoreContainer">
+    <EntitySet Name="CLIENTE" EntityType="Self.CLIENTE" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="COMPROBANTE" EntityType="Self.COMPROBANTE" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="DETALLE_COMPROBANTE" EntityType="Self.DETALLE_COMPROBANTE" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PRODUCTO" EntityType="Self.PRODUCTO" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="USUARIO" EntityType="Self.USUARIO" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK__COMPROBAN__IdCli__2C3393D0" Association="Self.FK__COMPROBAN__IdCli__2C3393D0">
+      <End Role="CLIENTE" EntitySet="CLIENTE" />
+      <End Role="COMPROBANTE" EntitySet="COMPROBANTE" />
+    </AssociationSet>
+    <AssociationSet Name="FK__COMPROBAN__IdUsu__2D27B809" Association="Self.FK__COMPROBAN__IdUsu__2D27B809">
+      <End Role="USUARIO" EntitySet="USUARIO" />
+      <End Role="COMPROBANTE" EntitySet="COMPROBANTE" />
+    </AssociationSet>
+    <AssociationSet Name="FK__DETALLE_C__CodPr__30F848ED" Association="Self.FK__DETALLE_C__CodPr__30F848ED">
+      <End Role="PRODUCTO" EntitySet="PRODUCTO" />
+      <End Role="DETALLE_COMPROBANTE" EntitySet="DETALLE_COMPROBANTE" />
+    </AssociationSet>
+    <AssociationSet Name="FK__DETALLE_C__IdCom__300424B4" Association="Self.FK__DETALLE_C__IdCom__300424B4">
+      <End Role="COMPROBANTE" EntitySet="COMPROBANTE" />
+      <End Role="DETALLE_COMPROBANTE" EntitySet="DETALLE_COMPROBANTE" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

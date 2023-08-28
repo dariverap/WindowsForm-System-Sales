@@ -1,0 +1,78 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="FerreteriaModelStoreContainer" CdmEntityContainer="FerreteriaEntities">
+    <EntitySetMapping Name="CLIENTE">
+      <EntityTypeMapping TypeName="FerreteriaModel.CLIENTE">
+        <MappingFragment StoreEntitySet="CLIENTE">
+          <ScalarProperty Name="NumDoc" ColumnName="NumDoc" />
+          <ScalarProperty Name="TipoDoc" ColumnName="TipoDoc" />
+          <ScalarProperty Name="NomCliente" ColumnName="NomCliente" />
+          <ScalarProperty Name="ApeCliente" ColumnName="ApeCliente" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="COMPROBANTE">
+      <EntityTypeMapping TypeName="FerreteriaModel.COMPROBANTE">
+        <MappingFragment StoreEntitySet="COMPROBANTE">
+          <ScalarProperty Name="ApeCliente" ColumnName="ApeCliente" />
+          <ScalarProperty Name="NumComprobante" ColumnName="NumComprobante" />
+          <ScalarProperty Name="IdCliente" ColumnName="IdCliente" />
+          <ScalarProperty Name="IdUsuario" ColumnName="IdUsuario" />
+          <ScalarProperty Name="NomUsuario" ColumnName="NomUsuario" />
+          <ScalarProperty Name="NomCliente" ColumnName="NomCliente" />
+          <ScalarProperty Name="Total" ColumnName="Total" />
+          <ScalarProperty Name="TipoComprobante" ColumnName="TipoComprobante" />
+          <ScalarProperty Name="IGVComprobante" ColumnName="IGVComprobante" />
+          <ScalarProperty Name="FechaComprobante" ColumnName="FechaComprobante" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DETALLE_COMPROBANTE">
+      <EntityTypeMapping TypeName="FerreteriaModel.DETALLE_COMPROBANTE">
+        <MappingFragment StoreEntitySet="DETALLE_COMPROBANTE">
+          <ScalarProperty Name="IdDetalle" ColumnName="IdDetalle" />
+          <ScalarProperty Name="IdComprobante" ColumnName="IdComprobante" />
+          <ScalarProperty Name="CodProd" ColumnName="CodProd" />
+          <ScalarProperty Name="CantProd" ColumnName="CantProd" />
+          <ScalarProperty Name="PrecioVenta" ColumnName="PrecioVenta" />
+          <ScalarProperty Name="ImporteProd" ColumnName="ImporteProd" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PRODUCTO">
+      <EntityTypeMapping TypeName="FerreteriaModel.PRODUCTO">
+        <MappingFragment StoreEntitySet="PRODUCTO">
+          <ScalarProperty Name="CodProd" ColumnName="CodProd" />
+          <ScalarProperty Name="NomProd" ColumnName="NomProd" />
+          <ScalarProperty Name="StockProd" ColumnName="StockProd" />
+          <ScalarProperty Name="PrecioVenta" ColumnName="PrecioVenta" />
+          <ScalarProperty Name="Estado" ColumnName="Estado" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="USUARIO">
+      <EntityTypeMapping TypeName="FerreteriaModel.USUARIO">
+        <MappingFragment StoreEntitySet="USUARIO">
+          <ScalarProperty Name="IdUsuario" ColumnName="IdUsuario" />
+          <ScalarProperty Name="NombreEmpleado" ColumnName="NombreEmpleado" />
+          <ScalarProperty Name="NomUsuario" ColumnName="NomUsuario" />
+          <ScalarProperty Name="ContraUsuario" ColumnName="ContraUsuario" />
+          <ScalarProperty Name="Pregunta" ColumnName="Pregunta" />
+          <ScalarProperty Name="Respuesta" ColumnName="Respuesta" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="RANGOFECHAS" FunctionName="FerreteriaModel.Store.RANGOFECHAS">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="FerreteriaModel.RANGOFECHAS_Result">
+          <ScalarProperty Name="tipoComprobante" ColumnName="tipoComprobante" />
+          <ScalarProperty Name="NumComprobante" ColumnName="NumComprobante" />
+          <ScalarProperty Name="ApeCliente" ColumnName="ApeCliente" />
+          <ScalarProperty Name="NomCliente" ColumnName="NomCliente" />
+          <ScalarProperty Name="Total" ColumnName="Total" />
+          <ScalarProperty Name="FechaComprobante" ColumnName="FechaComprobante" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+  </EntityContainerMapping>
+</Mapping>

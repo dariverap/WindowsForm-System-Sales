@@ -1,0 +1,99 @@
+D:\C#\FerreteriaYerias\FerreteriaYerias\obj\Debug\FerreteriaYerias.csproj.AssemblyReference.cache
+D:\C#\FerreteriaYerias\FerreteriaYerias\obj\Debug\FerreteriaYerias.csproj.SuggestedBindingRedirects.cache
+D:\C#\FerreteriaYerias\FerreteriaYerias\obj\Debug\FerreteriaYerias.frmBusquedaCliente.resources
+D:\C#\FerreteriaYerias\FerreteriaYerias\obj\Debug\FerreteriaYerias.frmBusquedaProducto.resources
+D:\C#\FerreteriaYerias\FerreteriaYerias\obj\Debug\FerreteriaYerias.frmPrincipal.resources
+D:\C#\FerreteriaYerias\FerreteriaYerias\obj\Debug\FerreteriaYerias.frmProductos.resources
+D:\C#\FerreteriaYerias\FerreteriaYerias\obj\Debug\FerreteriaYerias.frmVenta.resources
+D:\C#\FerreteriaYerias\FerreteriaYerias\obj\Debug\FerreteriaYerias.Properties.Resources.resources
+D:\C#\FerreteriaYerias\FerreteriaYerias\obj\Debug\FerreteriaYerias.csproj.GenerateResource.cache
+D:\C#\FerreteriaYerias\FerreteriaYerias\obj\Debug\FerreteriaYerias.csproj.CoreCompileInputs.cache
+D:\C#\FerreteriaYerias\FerreteriaYerias\bin\Debug\FerreteriaYerias.exe.config
+D:\C#\FerreteriaYerias\FerreteriaYerias\bin\Debug\FerreteriaYerias.exe
+D:\C#\FerreteriaYerias\FerreteriaYerias\bin\Debug\FerreteriaYerias.pdb
+D:\C#\FerreteriaYerias\FerreteriaYerias\bin\Debug\EntityFramework.dll
+D:\C#\FerreteriaYerias\FerreteriaYerias\bin\Debug\EntityFramework.SqlServer.dll
+D:\C#\FerreteriaYerias\FerreteriaYerias\bin\Debug\FontAwesome.Sharp.dll
+D:\C#\FerreteriaYerias\FerreteriaYerias\bin\Debug\EntityFramework.xml
+D:\C#\FerreteriaYerias\FerreteriaYerias\bin\Debug\EntityFramework.SqlServer.xml
+D:\C#\FerreteriaYerias\FerreteriaYerias\obj\Debug\FerreteriaYerias.csproj.CopyComplete
+D:\C#\FerreteriaYerias\FerreteriaYerias\obj\Debug\FerreteriaYerias.exe
+D:\C#\FerreteriaYerias\FerreteriaYerias\obj\Debug\FerreteriaYerias.pdb
+D:\C#\FerreteriaYerias\FerreteriaYerias\obj\Debug\FerreteriaYerias.frmLogin.resources
+D:\C#\FerreteriaYerias\FerreteriaYerias\obj\Debug\FerreteriaYerias.frmReporteVentas.resources
+D:\C#\FerreteriaYerias\FerreteriaYerias\obj\Debug\FerreteriaYerias.frmCambiarContraseña.resources
+D:\FerreteriasYerias.bacpac\FerreteriaYerias\FerreteriaYerias\bin\Debug\FerreteriaYerias.exe.config
+D:\FerreteriasYerias.bacpac\FerreteriaYerias\FerreteriaYerias\bin\Debug\FerreteriaYerias.exe
+D:\FerreteriasYerias.bacpac\FerreteriaYerias\FerreteriaYerias\bin\Debug\FerreteriaYerias.pdb
+D:\FerreteriasYerias.bacpac\FerreteriaYerias\FerreteriaYerias\bin\Debug\EntityFramework.dll
+D:\FerreteriasYerias.bacpac\FerreteriaYerias\FerreteriaYerias\bin\Debug\EntityFramework.SqlServer.dll
+D:\FerreteriasYerias.bacpac\FerreteriaYerias\FerreteriaYerias\bin\Debug\FontAwesome.Sharp.dll
+D:\FerreteriasYerias.bacpac\FerreteriaYerias\FerreteriaYerias\bin\Debug\EntityFramework.xml
+D:\FerreteriasYerias.bacpac\FerreteriaYerias\FerreteriaYerias\bin\Debug\EntityFramework.SqlServer.xml
+D:\FerreteriasYerias.bacpac\FerreteriaYerias\FerreteriaYerias\obj\Debug\FerreteriaYerias.csproj.AssemblyReference.cache
+D:\FerreteriasYerias.bacpac\FerreteriaYerias\FerreteriaYerias\obj\Debug\FerreteriaYerias.csproj.SuggestedBindingRedirects.cache
+D:\FerreteriasYerias.bacpac\FerreteriaYerias\FerreteriaYerias\obj\Debug\FerreteriaYerias.frmCambiarContraseña.resources
+D:\FerreteriasYerias.bacpac\FerreteriaYerias\FerreteriaYerias\obj\Debug\FerreteriaYerias.frmLogin.resources
+D:\FerreteriasYerias.bacpac\FerreteriaYerias\FerreteriaYerias\obj\Debug\FerreteriaYerias.frmBusquedaCliente.resources
+D:\FerreteriasYerias.bacpac\FerreteriaYerias\FerreteriaYerias\obj\Debug\FerreteriaYerias.frmBusquedaProducto.resources
+D:\FerreteriasYerias.bacpac\FerreteriaYerias\FerreteriaYerias\obj\Debug\FerreteriaYerias.frmPrincipal.resources
+D:\FerreteriasYerias.bacpac\FerreteriaYerias\FerreteriaYerias\obj\Debug\FerreteriaYerias.frmProductos.resources
+D:\FerreteriasYerias.bacpac\FerreteriaYerias\FerreteriaYerias\obj\Debug\FerreteriaYerias.frmReporteVentas.resources
+D:\FerreteriasYerias.bacpac\FerreteriaYerias\FerreteriaYerias\obj\Debug\FerreteriaYerias.frmVenta.resources
+D:\FerreteriasYerias.bacpac\FerreteriaYerias\FerreteriaYerias\obj\Debug\FerreteriaYerias.Properties.Resources.resources
+D:\FerreteriasYerias.bacpac\FerreteriaYerias\FerreteriaYerias\obj\Debug\FerreteriaYerias.csproj.GenerateResource.cache
+D:\FerreteriasYerias.bacpac\FerreteriaYerias\FerreteriaYerias\obj\Debug\FerreteriaYerias.csproj.CoreCompileInputs.cache
+D:\FerreteriasYerias.bacpac\FerreteriaYerias\FerreteriaYerias\obj\Debug\FerreteriaYerias.csproj.CopyComplete
+D:\FerreteriasYerias.bacpac\FerreteriaYerias\FerreteriaYerias\obj\Debug\FerreteriaYerias.exe
+D:\FerreteriasYerias.bacpac\FerreteriaYerias\FerreteriaYerias\obj\Debug\FerreteriaYerias.pdb
+D:\FerreteriasYerias.bacpac\FerreteriaYerias\FerreteriaYerias\obj\Debug\FerreteriaYerias.frmModalAcercaDe.resources
+C:\Users\Diego\Desktop\FerreteriaYerias\FerreteriaYerias\bin\Debug\FerreteriaYerias.exe.config
+C:\Users\Diego\Desktop\FerreteriaYerias\FerreteriaYerias\bin\Debug\FerreteriaYerias.exe
+C:\Users\Diego\Desktop\FerreteriaYerias\FerreteriaYerias\bin\Debug\FerreteriaYerias.pdb
+C:\Users\Diego\Desktop\FerreteriaYerias\FerreteriaYerias\bin\Debug\EntityFramework.dll
+C:\Users\Diego\Desktop\FerreteriaYerias\FerreteriaYerias\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Diego\Desktop\FerreteriaYerias\FerreteriaYerias\bin\Debug\FontAwesome.Sharp.dll
+C:\Users\Diego\Desktop\FerreteriaYerias\FerreteriaYerias\bin\Debug\EntityFramework.xml
+C:\Users\Diego\Desktop\FerreteriaYerias\FerreteriaYerias\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Diego\Desktop\FerreteriaYerias\FerreteriaYerias\obj\Debug\FerreteriaYerias.csproj.AssemblyReference.cache
+C:\Users\Diego\Desktop\FerreteriaYerias\FerreteriaYerias\obj\Debug\FerreteriaYerias.csproj.SuggestedBindingRedirects.cache
+C:\Users\Diego\Desktop\FerreteriaYerias\FerreteriaYerias\obj\Debug\FerreteriaYerias.frmCambiarContraseña.resources
+C:\Users\Diego\Desktop\FerreteriaYerias\FerreteriaYerias\obj\Debug\FerreteriaYerias.frmLogin.resources
+C:\Users\Diego\Desktop\FerreteriaYerias\FerreteriaYerias\obj\Debug\FerreteriaYerias.frmBusquedaCliente.resources
+C:\Users\Diego\Desktop\FerreteriaYerias\FerreteriaYerias\obj\Debug\FerreteriaYerias.frmBusquedaProducto.resources
+C:\Users\Diego\Desktop\FerreteriaYerias\FerreteriaYerias\obj\Debug\FerreteriaYerias.frmPrincipal.resources
+C:\Users\Diego\Desktop\FerreteriaYerias\FerreteriaYerias\obj\Debug\FerreteriaYerias.frmProductos.resources
+C:\Users\Diego\Desktop\FerreteriaYerias\FerreteriaYerias\obj\Debug\FerreteriaYerias.frmReporteVentas.resources
+C:\Users\Diego\Desktop\FerreteriaYerias\FerreteriaYerias\obj\Debug\FerreteriaYerias.frmVenta.resources
+C:\Users\Diego\Desktop\FerreteriaYerias\FerreteriaYerias\obj\Debug\FerreteriaYerias.frmModalAcercaDe.resources
+C:\Users\Diego\Desktop\FerreteriaYerias\FerreteriaYerias\obj\Debug\FerreteriaYerias.Properties.Resources.resources
+C:\Users\Diego\Desktop\FerreteriaYerias\FerreteriaYerias\obj\Debug\FerreteriaYerias.csproj.GenerateResource.cache
+C:\Users\Diego\Desktop\FerreteriaYerias\FerreteriaYerias\obj\Debug\FerreteriaYerias.csproj.CoreCompileInputs.cache
+C:\Users\Diego\Desktop\FerreteriaYerias\FerreteriaYerias\obj\Debug\FerreteriaYerias.csproj.CopyComplete
+C:\Users\Diego\Desktop\FerreteriaYerias\FerreteriaYerias\obj\Debug\FerreteriaYerias.exe
+C:\Users\Diego\Desktop\FerreteriaYerias\FerreteriaYerias\obj\Debug\FerreteriaYerias.pdb
+D:\CICLO 3\VIERNES\Nueva carpeta\FerreteriaYerias\FerreteriaYerias\bin\Debug\FerreteriaYerias.exe.config
+D:\CICLO 3\VIERNES\Nueva carpeta\FerreteriaYerias\FerreteriaYerias\bin\Debug\FerreteriaYerias.exe
+D:\CICLO 3\VIERNES\Nueva carpeta\FerreteriaYerias\FerreteriaYerias\bin\Debug\FerreteriaYerias.pdb
+D:\CICLO 3\VIERNES\Nueva carpeta\FerreteriaYerias\FerreteriaYerias\bin\Debug\EntityFramework.dll
+D:\CICLO 3\VIERNES\Nueva carpeta\FerreteriaYerias\FerreteriaYerias\bin\Debug\EntityFramework.SqlServer.dll
+D:\CICLO 3\VIERNES\Nueva carpeta\FerreteriaYerias\FerreteriaYerias\bin\Debug\FontAwesome.Sharp.dll
+D:\CICLO 3\VIERNES\Nueva carpeta\FerreteriaYerias\FerreteriaYerias\bin\Debug\EntityFramework.xml
+D:\CICLO 3\VIERNES\Nueva carpeta\FerreteriaYerias\FerreteriaYerias\bin\Debug\EntityFramework.SqlServer.xml
+D:\CICLO 3\VIERNES\Nueva carpeta\FerreteriaYerias\FerreteriaYerias\obj\Debug\FerreteriaYerias.csproj.AssemblyReference.cache
+D:\CICLO 3\VIERNES\Nueva carpeta\FerreteriaYerias\FerreteriaYerias\obj\Debug\FerreteriaYerias.csproj.SuggestedBindingRedirects.cache
+D:\CICLO 3\VIERNES\Nueva carpeta\FerreteriaYerias\FerreteriaYerias\obj\Debug\FerreteriaYerias.frmCambiarContraseña.resources
+D:\CICLO 3\VIERNES\Nueva carpeta\FerreteriaYerias\FerreteriaYerias\obj\Debug\FerreteriaYerias.frmLogin.resources
+D:\CICLO 3\VIERNES\Nueva carpeta\FerreteriaYerias\FerreteriaYerias\obj\Debug\FerreteriaYerias.frmBusquedaCliente.resources
+D:\CICLO 3\VIERNES\Nueva carpeta\FerreteriaYerias\FerreteriaYerias\obj\Debug\FerreteriaYerias.frmBusquedaProducto.resources
+D:\CICLO 3\VIERNES\Nueva carpeta\FerreteriaYerias\FerreteriaYerias\obj\Debug\FerreteriaYerias.frmPrincipal.resources
+D:\CICLO 3\VIERNES\Nueva carpeta\FerreteriaYerias\FerreteriaYerias\obj\Debug\FerreteriaYerias.frmProductos.resources
+D:\CICLO 3\VIERNES\Nueva carpeta\FerreteriaYerias\FerreteriaYerias\obj\Debug\FerreteriaYerias.frmReporteVentas.resources
+D:\CICLO 3\VIERNES\Nueva carpeta\FerreteriaYerias\FerreteriaYerias\obj\Debug\FerreteriaYerias.frmVenta.resources
+D:\CICLO 3\VIERNES\Nueva carpeta\FerreteriaYerias\FerreteriaYerias\obj\Debug\FerreteriaYerias.frmModalAcercaDe.resources
+D:\CICLO 3\VIERNES\Nueva carpeta\FerreteriaYerias\FerreteriaYerias\obj\Debug\FerreteriaYerias.Properties.Resources.resources
+D:\CICLO 3\VIERNES\Nueva carpeta\FerreteriaYerias\FerreteriaYerias\obj\Debug\FerreteriaYerias.csproj.GenerateResource.cache
+D:\CICLO 3\VIERNES\Nueva carpeta\FerreteriaYerias\FerreteriaYerias\obj\Debug\FerreteriaYerias.csproj.CoreCompileInputs.cache
+D:\CICLO 3\VIERNES\Nueva carpeta\FerreteriaYerias\FerreteriaYerias\obj\Debug\FerreteriaYerias.csproj.CopyComplete
+D:\CICLO 3\VIERNES\Nueva carpeta\FerreteriaYerias\FerreteriaYerias\obj\Debug\FerreteriaYerias.exe
+D:\CICLO 3\VIERNES\Nueva carpeta\FerreteriaYerias\FerreteriaYerias\obj\Debug\FerreteriaYerias.pdb

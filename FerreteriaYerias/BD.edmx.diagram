@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="2a055d117c5e4fca9e955f27eee1bd02" Name="Diagram1" ZoomLevel="108">
+        <EntityTypeShape EntityType="Ferreteria.bacpacModel.CLIENTE" Width="1.5" PointX="0.75" PointY="1.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Ferreteria.bacpacModel.COMPROBANTE" Width="1.5" PointX="5" PointY="1.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="Ferreteria.bacpacModel.DETALLE_COMPROBANTE" Width="2.125" PointX="8.375" PointY="1.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="Ferreteria.bacpacModel.PRODUCTO" Width="1.5" PointX="11" PointY="4.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="Ferreteria.bacpacModel.USUARIO" Width="1.5" PointX="2.75" PointY="4.875" IsExpanded="true" />
+        <AssociationConnector Association="Ferreteria.bacpacModel.FK__COMPROBAN__IdCli__2F10007B" ManuallyRouted="false" />
+        <AssociationConnector Association="Ferreteria.bacpacModel.FK__COMPROBAN__IdUsu__300424B4" ManuallyRouted="false" />
+        <AssociationConnector Association="Ferreteria.bacpacModel.FK__DETALLE_C__IdCom__30F848ED" ManuallyRouted="false" />
+        <AssociationConnector Association="Ferreteria.bacpacModel.FK__DETALLE_C__CodPr__31EC6D26" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="Ferreteria.bacpacModel.PAGO" Width="1.5" PointX="8.625" PointY="5.25" />
+        <AssociationConnector Association="Ferreteria.bacpacModel.FK_COMPROBANTE_PAGO" />
+        <EntityTypeShape EntityType="Ferreteria.bacpacModel.sysdiagrams" Width="1.5" PointX="13.75" PointY="0.75" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
